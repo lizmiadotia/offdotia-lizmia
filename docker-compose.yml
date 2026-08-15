@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  lizmia:
+    build: .
+    container_name: lizmia_app
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./memory.json:/app/memory.json
+    restart: unless-stopped
